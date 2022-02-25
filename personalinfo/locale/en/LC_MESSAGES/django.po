@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-24 12:27-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\personalinfo\forms.py:17
+msgid "*نام و نام خانوادگي .."
+msgstr "* Your Name"
+
+#: .\personalinfo\forms.py:21
+msgid "*عنوان .."
+msgstr "* Subject"
+
+#: .\personalinfo\forms.py:25
+msgid "*ايميل ..."
+msgstr "* Email"
+
+#: .\personalinfo\forms.py:29
+msgid "*پيام شما"
+msgstr "* Message"
+
+#: .\personalinfo\templates\certificate-details.html:28
+msgid "از"
+msgstr "From"
+
+#: .\personalinfo\templates\certificate-details.html:29
+msgid "تاريخ دريافت"
+msgstr "Certificate Date"
+
+#: .\personalinfo\templates\certificate-details.html:30
+msgid "لينك اعتبارسنجي"
+msgstr "Verify at"
+
+#: .\personalinfo\templates\index.html:29
+msgid "درباره"
+msgstr "About"
+
+#: .\personalinfo\templates\index.html:30
+#: .\personalinfo\templates\index.html:121
+#: .\personalinfo\templates\index.html:164
+msgid "تحصيلات"
+msgstr "Educations"
+
+#: .\personalinfo\templates\index.html:31
+msgid "مقالات"
+msgstr "Publications"
+
+#: .\personalinfo\templates\index.html:32
+msgid "تجارب"
+msgstr "Experiences"
+
+#: .\personalinfo\templates\index.html:33
+msgid "علاقه مندي"
+msgstr "Research Interests"
+
+#: .\personalinfo\templates\index.html:34
+msgid "مهارت"
+msgstr "Skills"
+
+#: .\personalinfo\templates\index.html:35
+msgid "سرتيفيكيت"
+msgstr "Certificates"
+
+#: .\personalinfo\templates\index.html:36
+msgid "پرتفوليو"
+msgstr "Portfolio"
+
+#: .\personalinfo\templates\index.html:37
+#: .\personalinfo\templates\index.html:459
+msgid "مراجع"
+msgstr "References"
+
+#: .\personalinfo\templates\index.html:38
+msgid "تماس"
+msgstr "Contact"
+
+#: .\personalinfo\templates\index.html:58
+msgid "دانلود رزومه"
+msgstr "Download CV"
+
+#: .\personalinfo\templates\index.html:66
+msgid "توييتر"
+msgstr "twitter"
+
+#: .\personalinfo\templates\index.html:67
+msgid "واتس اپ"
+msgstr "whatsapp"
+
+#: .\personalinfo\templates\index.html:68
+msgid "تلگرام"
+msgstr "telegram"
+
+#: .\personalinfo\templates\index.html:69
+msgid "اينستاگرام"
+msgstr "instagram"
+
+#: .\personalinfo\templates\index.html:70
+msgid "لينكدين"
+msgstr "linkedin"
+
+#: .\personalinfo\templates\index.html:71
+msgid "گيت هاب"
+msgstr "github"
+
+#: .\personalinfo\templates\index.html:72
+msgid "يوتيوب"
+msgstr "youtube"
+
+#: .\personalinfo\templates\index.html:73
+msgid "اسكايپ"
+msgstr "skype"
+
+#: .\personalinfo\templates\index.html:74
+msgid "گوگل اسكولار"
+msgstr "google"
+
+#: .\personalinfo\templates\index.html:85
+msgid "درباره من"
+msgstr "About Me"
+
+#: .\personalinfo\templates\index.html:93
+msgid "چكيده"
+msgstr "Sumary"
+
+#: .\personalinfo\templates\index.html:95
+msgid "تاريخ تولد"
+msgstr "Birthday"
+
+#: .\personalinfo\templates\index.html:109
+#: .\personalinfo\templates\index.html:478
+#: .\personalinfo\templates\index.html:554
+msgid "ايميل"
+msgstr "Email"
+
+#: .\personalinfo\templates\index.html:113
+msgid "آدرس"
+msgstr "Address"
+
+#: .\personalinfo\templates\index.html:117
+msgid "رشته تحصيلي"
+msgstr "Education"
+
+#: .\personalinfo\templates\index.html:192
+#: .\personalinfo\templates\index.html:228
+msgid " دانشگاه"
+msgstr "University"
+
+#: .\personalinfo\templates\index.html:194
+#: .\personalinfo\templates\index.html:230
+msgid "معدل "
+msgstr "GPA"
+
+#: .\personalinfo\templates\index.html:241
+msgid "مقالات من"
+msgstr "My Publication"
+
+#: .\personalinfo\templates\index.html:272
+msgid "تجارب كاري"
+msgstr "Experience"
+
+#: .\personalinfo\templates\index.html:302
+msgid "علاقه مندي هاي من"
+msgstr "Research Interests"
+
+#: .\personalinfo\templates\index.html:321
+msgid "مهارت هاي من"
+msgstr "Skills"
+
+#: .\personalinfo\templates\index.html:348
+msgid "سرتيفيكيت هاي من "
+msgstr "My Certificates"
+
+#: .\personalinfo\templates\index.html:429
+msgid "پرتفوليوي من "
+msgstr "My Projects"
+
+#: .\personalinfo\templates\index.html:479
+msgid "وب سايت"
+msgstr "Website"
+
+#: .\personalinfo\templates\index.html:480
+msgid "تلفن"
+msgstr "Phone"
+
+#: .\personalinfo\templates\index.html:508
+msgid "تماس با من "
+msgstr "Contact Me"
+
+#: .\personalinfo\templates\index.html:544
+msgid "ارسال پيام "
+msgstr "Send Message"
+
+#: .\personalinfo\templates\index.html:552
+msgid "آدرس "
+msgstr "City"
+
+#: .\personalinfo\templates\index.html:556
+msgid "شبكه هاي اجتماعي"
+msgstr "Social Profiles"
+
+#: .\personalinfo\templates\index.html:587
+msgid " طراحي شده توسط"
+msgstr "Designed by"
+
+#: .\personalinfo\templates\portfolio-details.html:30
+msgid "لينك پروژه"
+msgstr "Project Link"

@@ -1,0 +1,76 @@
+{% load static %}
+<!-- {% load i18n %} -->
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %} {% endblock %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+   <!-- sweetalert css -->
+   <link rel="stylesheet" href="{% static 'css/sweet-alert.css' %}">
+
+ 
+  <!-- font awesome -->
+  <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" />
+
+  <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  
+  {% if LANGUAGE_CODE == 'en' %}
+    <link href="{% static 'css/ltrmain.css' %}" rel="stylesheet">
+  {% elif LANGUAGE_CODE == 'fa' %}  
+    <link href="{% static 'css/rtlmain.css' %}" rel="stylesheet">
+  {% endif %}
+  
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+        opacity: 1 !important;
+        transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+  
+</head>
+
+<body id="top">
+
+  {% block content %} {% endblock %}
+ 
+
+  
+
+  <!-- sweet-alert js -->
+  <script src="{% static 'js/sweet-alert.min.js' %}"></script>
+
+  <script src="{% static 'js/core/jquery.3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/core/popper.min.js' %}"></script>
+  <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/now-ui-kit.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'scripts/main.js' %}"></script>
+
+  <script>
+
+    function checkform() {
+       swal({
+            title: "Send Message",
+            text: "Thanks.",
+            type: "success",
+            confirmButtonColor: "#3e6ff4",
+            confirmButtonText: "OK",
+
+        });
+    }
+  </script>
+
+</body>
+
+</html>

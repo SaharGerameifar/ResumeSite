@@ -1,0 +1,591 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {{ userprofile.get_full_name }} {% endblock %}
+
+{% block content %}
+
+  <header>
+    <div class="profile-page sidebar-collapse">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+        <div class="container">
+          <div class="navbar-translate">
+            <div class="toggel">
+              {% if LANGUAGE_CODE == 'fa' %} 
+                <a href="{% url 'personalinfo:change-lang' %}?lang=en&next=/en/{{request.path|slice:'4:'}}" class="btn ">en</a>
+              {% elif LANGUAGE_CODE == 'en' %} 
+                <a href="{% url 'personalinfo:change-lang' %}?lang=fa&next=/fa/{{request.path|slice:'4:'}}" class="btn ">fa</a>
+              {% endif %} 
+            </div> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+              aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span
+                class="navbar-toggler-bar bar3"></span></button>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#about" >{% translate 'درباره' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#education" >{% translate 'تحصيلات' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#publication" >{% translate 'مقالات' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience" > {% translate 'تجارب' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#intersted" > {% translate 'علاقه مندي' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill" > {% translate 'مهارت' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#certificate" >{% translate 'سرتيفيكيت' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio" >{% translate 'پرتفوليو' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#reference" >{% translate 'مراجع' %}</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact" >{% translate 'تماس' %}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="page-content">
+    <div>
+      <div class="profile-page">
+        <div class="wrapper">
+          <div class="page-header page-header-small" filter-color="green">
+            <div class="page-header-image" data-parallax="true"
+              style="background-image: url('{% static 'images/control-wallpaper-19.jpg' %}')"></div>
+            <div class="container">
+              <div class="content-center">
+                <div class="cc-profile-image"><a href="#"><img src="{{ userprofile.avatar.url }}" alt="Image" /></a>
+                </div>
+                <div class="h2 title">{{ userprofile.get_full_name }}</div>
+                <p class="category text-white mt-3"> {{ userprofile.title }}</p>
+                <a download href="{{ userprofile.cv.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary " data-aos="zoom-in" data-aos-anchor="data-aos-anchor"> {% translate 'دانلود رزومه' %} </a>  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="container">
+            <div class="button-container">
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://twitter.com/{{userprofile.twitter}}" rel="tooltip" title="{% translate 'توييتر' %}" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://wa.me/{{userprofile.whatsapp}}" rel="tooltip" title="{% translate 'واتس اپ' %}" target="_blank"><i class="fa fa-whatsapp"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://t.me/{{userprofile.telegram}}" rel="tooltip" title="{% translate 'تلگرام' %}" target="_blank"><i class="fa fa-telegram"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://instagram.com/{{userprofile.instagram}}" rel="tooltip" title="{% translate 'اينستاگرام' %}" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/{{userprofile.linkedin}}" rel="tooltip" title="{% translate 'لينكدين' %}" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://github.com/{{userprofile.github}}" rel="tooltip" title="{% translate 'گيت هاب' %}" target="_blank"><i class="fa fa-github"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.youtube.com/{{userprofile.youtube}}" rel="tooltip" title="{% translate 'يوتيوب' %}" target="_blank"><i class="fa fa-youtube"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.skype.com/{{userprofile.skype}}" rel="tooltip" title="{% translate 'اسكايپ' %}" target="_blank"><i class="fa fa-skype"></i></a>
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.googlescholar.com/{{userprofile.googlescholar}}" rel="tooltip" title="{% translate 'گوگل اسكولار' %}" target="_blank"><i class="fa fa-google"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="about">
+        <div class="container">
+          <div class="card" data-aos="fade-up" data-aos-offset="10">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="card-body p-5">
+                  <div class="h4 mt-0 title">{% translate 'درباره من' %}</div>
+                  <p>
+                    {{ userprofile.bio|linebreaks }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="card-body py-5">
+                  <div class="h4 mt-0 title base-info"> {% translate 'چكيده' %} </div>
+                  <div class="row info">
+                    <div class="col-sm-6"><strong class="text-uppercase">{% translate 'تاريخ تولد' %}:</strong></div>
+                    <div class="col-sm-9 pt-2">
+                      {% if LANGUAGE_CODE == 'fa' %} 
+                       
+                          {{ userprofile.jbirthday }} 
+                       
+                      {% elif LANGUAGE_CODE == 'en' %}    
+                        
+                          {{ userprofile.Mbirthday }} 
+                       
+                      {% endif %} 
+                    </div>
+                  </div>
+                  <div class="row mt-3 info">
+                    <div class="col-sm-6"><strong class="text-uppercase">{% translate 'ايميل' %}:</strong></div>
+                    <div class="col-sm-9 pt-2">{{ userprofile.email }}</div>
+                  </div>
+                  <div class="row mt-3 info">
+                    <div class="col-sm-6"><strong class="text-uppercase">{% translate 'آدرس' %}:</strong></div>
+                    <div class="col-sm-9 pt-2">{{ userprofile.city }} , {{ userprofile.country }} </div>
+                  </div>
+                  <div class="row mt-3 info">
+                    <div class="col-sm-6"><strong class="text-uppercase">{% translate 'رشته تحصيلي' %}:</strong></div>
+                    <div class="col-sm-9 pt-2">{{ userprofile.course }}</div>
+                  </div>
+                  <div class="row mt-3 info">
+                    <div class="col-sm-6"><strong class="text-uppercase">{% translate 'تحصيلات' %}:</strong></div>
+                    <div class="col-sm-9 pt-2">
+                      {% if LANGUAGE_CODE == 'fa' %}
+                        {% if userprofile.last_degree == 1 %}
+                          <span>زير ديپلم </span>
+                        {% elif userprofile.last_degree == 2 %}
+                          <span> ديپلم </span>
+                        {% elif userprofile.last_degree == 3 %} 
+                          <span> كارشناسي </span>
+                        {% elif userprofile.last_degree == 4 %} 
+                          <span>كارشناسي ارشد  </span>
+                        {% elif userprofile.last_degree == 5 %}
+                          <span> دكترا </span>
+                        {% else %} 
+                          <span> فوق دكترا </span>
+                        {% endif %}  
+                      {% endif %}
+                      
+                    {% if LANGUAGE_CODE == 'en' %}
+                      {% if userprofile.last_degree == 1 %}
+                        <span>High School </span>
+                      {% elif userprofile.last_degree == 2 %}
+                        <span> Diploma </span>
+                      {% elif userprofile.last_degree == 3 %} 
+                        <span> BA/BSc </span>
+                      {% elif userprofile.last_degree == 4 %} 
+                        <span> MA/MSc </span>
+                      {% elif userprofile.last_degree == 5 %}
+                        <span> PhD </span>
+                      {% else %} 
+                        <span> Post Doctoral </span>
+                      {% endif %}  
+                    {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="education">
+        <div class="container cc-education">
+          <div class="h4 text-center mb-4 title">{% translate 'تحصيلات' %}</div>
+              {% if LANGUAGE_CODE == 'fa' %}
+                {% for academic in academics %}
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body cc-education-header">
+                          <p class="date-educate">{{ academic.jstart }} - {{ academic.jend }}</p>
+                          <div class="h5 education"> 
+                            {% if academic.degree == 1 %}
+                              زير ديپلم 
+                            {% elif academic.degree == 2 %}
+                              ديپلم 
+                            {% elif academic.degree == 3 %} 
+                              كارشناسي 
+                            {% elif academic.degree == 4 %} 
+                              كارشناسي ارشد  
+                            {% elif academic.degree == 5 %}
+                              دكترا 
+                            {% else %} 
+                              فوق دكترا 
+                            {% endif %} 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body">
+                          <div class="h5">{{ academic.course }}</div>
+                          <p class="category mt-3">{% translate ' دانشگاه' %}  {{ academic.university }}, {{ academic.city_university }} , {{ academic.country_university }} </p>
+                          <p> {{ academic.describtion|linebreaks }}</p>
+                          <p>{% translate 'معدل ' %}  : <strong class="badge-primary">{{ academic.gpa }}</strong></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+              {% if LANGUAGE_CODE == 'en' %}
+                {% for academic in academics %}
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body cc-education-header">
+                          <p class="date-educate">{{ academic.Mstart }} - {{ academic.Mend }}</p>
+                          <div class="h5 education"> 
+                            {% if academic.degree == 1 %}
+                              High School
+                            {% elif academic.degree == 2 %}
+                              Diploma 
+                            {% elif academic.degree == 3 %} 
+                              BA/BSc 
+                            {% elif academic.degree == 4 %} 
+                              MA/MSc 
+                            {% elif academic.degree == 5 %}
+                              PhD 
+                            {% else %} 
+                              Post Doctoral 
+                            {% endif %} 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body">
+                          <div class="h5">{{ academic.course }}</div>
+                          <p class="category mt-3">{% translate ' دانشگاه' %}  {{ academic.university }}, {{ academic.city_university }} , {{ academic.country_university }} </p>
+                          <p> {{ academic.describtion|linebreaks }}</p>
+                          <p>{% translate 'معدل ' %}  : <strong class="badge-primary">{{ academic.gpa }}</strong></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+                {% endfor %}
+              {% endif %}   
+        </div>
+      </div>
+      <div class="section" id="publication">
+        <div class="container cc-education">
+          <div class="h4 text-center mb-4 title"> {% translate 'مقالات من' %}</div>
+                {% for publication in publications %}
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body cc-education-header">
+                          {% if LANGUAGE_CODE == 'en' %}
+                            <p class="date-educate">{{ publication.Mdate }} </p>
+                          {% elif LANGUAGE_CODE == 'fa' %}  
+                            <p class="date-educate">{{ publication.jdate }}</p>
+                          {% endif %}  
+                          <div class="h5 education"> 
+                            {{ publication.status }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body">
+                          <div class="h5 publication-title">
+                            <a href="htts://{{ publication.link}}" target="_blank" rel="noopener noreferrer">{{ publication.title}}</a>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+        </div>
+      </div>
+      <div class="section" id="experience">
+        <div class="container cc-experience">
+          <div class="h4 text-center mb-4 title">{% translate 'تجارب كاري' %}</div>
+          {% for job in jobs %}
+            <div class="card">
+              <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                  <div class="card-body cc-experience-header">
+                    {% if LANGUAGE_CODE == 'en' %}
+                      <p class="mx-auto">{{ job.Mstart }} - {{ job.Mend }}</p>
+                    {% elif LANGUAGE_CODE == 'fa' %}  
+                      <p class="mx-auto">{{ job.jstart }} - {{ job.jend }}</p>
+                    {% endif %}  
+                    <div class="h5">{{ job.company }}
+                        <br>
+                       <small> {{ job.city_company }} , {{ job.country_company }}</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                  <div class="card-body">
+                    <div class="h5">{{ job.job_title}}</div>
+                    <p>{{ job.describtion|linebreaks }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>  
+          {% endfor %}    
+        </div>
+      </div>
+      <div class="section" id="intersted">
+        <div class="container">
+          <div class="h4 text-center mb-4 title">{% translate 'علاقه مندي هاي من' %}</div>
+          <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <div class="card-body">
+              <div class="row">
+                {% for intereste in interestes %}  
+                  <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                      <i class="fa fa-sticky-note-o" ></i>
+                      <h3>{{ intereste.title }}</h3>
+                    </div>
+                  </div>
+                {% endfor %}  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="skill">
+        <div class="container">
+          <div class="h4 text-center mb-4 title"> {% translate 'مهارت هاي من' %}</div>
+          <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <div class="card-body">
+              <div class="row ">
+                {% for skill in skills %}
+                  <div class="col-md-6">
+                    <div class="progress-container progress-primary">
+                      <span class="progress-badge">{{ skill.name }}</span>
+                      <span class="progress-value px-3">{{ skill.score }}%</span>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
+                          data-aos-duration="2000" role="progressbar" aria-valuenow="{{ skill.score }}" aria-valuemin="0"
+                          aria-valuemax="100" style="width: {{ skill.score }}%;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}                   
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="certificate">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+              <div class="h4 text-center title">{% translate 'سرتيفيكيت هاي من ' %} </div>
+
+            </div>
+          </div>
+          <div class="tab-content gallery mt-2">
+            <div class="tab-pane active" id="web-development">
+              <div class="card p-5">
+                <div class="row certificate">
+                  {% for academic in academics %}
+                    <div class="col-lg-4 col-md-6 certificate-item filter-app">
+                      <div class="certificate-wrap ">
+                        <img src="{{ academic.thumbnail.url }}" class="img-fluid academic-img w-100" alt="">
+                        <div class="certificate-info">
+                          
+                          {% if LANGUAGE_CODE == 'fa' %}
+                            <h4>
+                              {% if academic.degree == 1 %}
+                                <span>زير ديپلم </span>
+                              {% elif academic.degree == 2 %}
+                                <span> ديپلم </span>
+                              {% elif academic.degree == 3 %} 
+                                <span> كارشناسي </span>
+                              {% elif academic.degree == 4 %} 
+                                <span>كارشناسي ارشد  </span>
+                              {% elif academic.degree == 5 %}
+                                <span> دكترا </span>
+                              {% else %} 
+                                <span> فوق دكترا </span>
+                              {% endif %} 
+                                <span>{{ academic.course }}</span> 
+                            </h4>
+                          {% endif %}
+                          {% if LANGUAGE_CODE == 'en' %}
+                            <h4>
+                              {% if academic.degree == 1 %}
+                                <span>High School </span>
+                              {% elif academic.degree == 2 %}
+                                <span> Diploma </span>
+                              {% elif academic.degree == 3 %} 
+                                <span> BA/BSc </span>
+                              {% elif academic.degree == 4 %} 
+                                <span> MA/MSc </span>
+                              {% elif academic.degree == 5 %}
+                                <span> PhD </span>
+                              {% else %} 
+                                <span> Post Doctoral </span>
+                              {% endif %} 
+                                <span>{{ academic.course }}</span> 
+                            </h4>
+                          {% endif %}
+                          <div class="certificate-links">
+                            <a href="{{ academic.thumbnail.url }}" target="_blank"><i class="fa fa-plus"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %} 
+                  {% for certificate in certificates %}                    
+                    <div class="col-lg-4 col-md-6 certificate-item filter-app">
+                      <div class="certificate-wrap">
+                        <img src="{{ certificate.thumbnail.url }}" class="img-fluid " alt="{{ certificate.name }}">
+                        <div class="certificate-info">
+                          <h4>{{ certificate.name }}</h4>
+                          <div class="certificate-links">
+                            <a href="{% url 'personalinfo:certificate-detail' certificate.pk %}" target="_blank"><i class="fa fa-link"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}   
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="section " id="portfolio">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+              <div class="h4 text-center title">{% translate 'پرتفوليوي من ' %}</div>
+
+            </div>
+          </div>
+          <div class="tab-content gallery mt-2">
+            <div class="tab-pane active" id="web-development">
+              <div class="card p-5">
+                <div class="row certificate">
+                  {% for project in projects %}
+                    <div class="col-lg-4 col-md-6 certificate-item filter-app">
+                      <div class="certificate-wrap">
+                        <img src="{{ project.cover.url }}" class="img-fluid" alt="{{ project.title }}">
+                        <div class="certificate-info">
+                          <h4>{{ project.title }}</h4>
+                          <div class="certificate-links">
+                            <a href="{% url 'personalinfo:portfolio-detail' project.pk %}" target="_blank"><i class="fa fa-link"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="section" id="reference">
+        <div class="container cc-reference">
+          <div class="h4 mb-4 text-center title">{% translate 'مراجع' %} </div>
+          <div class="card" data-aos="zoom-in">
+            <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
+              <ol class="carousel-indicators">
+                {% for testimonial in testimonials %}
+                  <li class="{{ forloop.first|yesno:'active,' }}" data-target="#cc-Indicators" data-slide-to="testimonial.id"></li>
+                  
+                {% endfor %}     
+
+              </ol>
+              <div class="carousel-inner">
+                {% for testimonial in testimonials %}
+                  <div class="carousel-item  {{ forloop.first|yesno:'active,' }}">
+                    <div class="row">
+                      <div class=" col-sm-12 cc-reference-header">
+                        <img src="{% static 'images/no-img.png' %}" alt="{{ testimonial.name }}" class="img-thumbnail rounded-circle" />
+                        <div class="h5 pt-2"> {{ testimonial.name }}</div>
+                        <p class="reference-job"> {{ testimonial.role }} </p>
+                        <ul class="testimonials-info">
+                          <li> <strong> {% translate 'ايميل' %}  : </strong> <span> {{ testimonial.email }}</span></li>
+                          <li></i> <strong> {% translate 'وب سايت' %} : </strong> <span> {{ testimonial.web_site }}  </span></li>
+                          <li></i> <strong> {% translate 'تلفن' %}  : </strong> <span> {{ testimonial.phone }}  </span></li>
+                        </ul>
+
+                      </div>
+                      <div class=" col-sm-12">
+                        <p>
+                          {{ testimonial.describtion|linebreaks }}
+                        </p>
+
+                      </div>
+
+                    </div>
+                  </div>
+                {% endfor %}     
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="contact">
+        <div class="cc-contact-information">
+          <div class="container">
+            <div class="cc-contact">
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                  <div class="card mb-0" data-aos="zoom-in">
+                    <div class="h4 text-center title">{% translate 'تماس با من ' %}</div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="card-body">
+                          <form method="POST" action="." onsubmit="return checkform();">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                    {{ form.name }}
+
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                    {{ form.email }}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                  {{ form.title }}
+                              </div>
+                            </div>
+                           
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="form-group">
+                                    {{ form.message }}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <button class="btn btn-primary" type="submit">{% translate 'ارسال پيام ' %}</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card-body">
+                          <p class="mb-0"><strong>{% translate 'آدرس ' %}  </strong></p>
+                          <p class="pb-2">{{ userprofile.city }} , {{ userprofile.country }}</p>
+                          <p class="mb-0"><strong>{% translate 'ايميل' %} </strong></p>
+                          <p>{{ userprofile.email }}</p>
+                          <p class="mb-0"><strong> {% translate 'شبكه هاي اجتماعي' %}</strong></p>
+                          <p class="pb-2">
+                            <div class="container text-center social">
+                              <a class="cc-whatsapp btn btn-link" href="https://wa.me/{{userprofile.whatsapp}}" target="_blank"><i class="fa fa-whatsapp fa-2x " aria-hidden="true"></i></a>
+                              <a class="cc-twitter btn btn-link " href="https://twitter.com/{{userprofile.twitter}}" target="_blank"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a>
+                              <a class="cc-telegram btn btn-link" href="https://t.me/{{userprofile.telegram}}" target="_blank"><i class="fa fa-telegram fa-2x" aria-hidden="true"></i></a>
+                              <a class="cc-instagram btn btn-link" href="https://instagram.com/{{userprofile.instagram}}" target="_blank"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a>
+                              <a class="cc-linkedin btn btn-link" href="https://www.linkedin.com/in/{{userprofile.linkedin}}" target="_blank"><i class="fa fa-linkedin fa-2x " aria-hidden="true"></i></a>
+                              <a class="cc-github btn btn-link " href="https://github.com/{{userprofile.github}}" target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
+                              <a class="cc-youtube btn btn-link" href="https://www.youtube.com/{{userprofile.youtube}}" target="_blank"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>
+                              <a class="cc-skype btn btn-link" href="https://www.skype.com/{{userprofile.skype}}" target="_blank"><i class="fa fa-skype fa-2x " aria-hidden="true"></i></a>
+                              <a class="cc-google btn btn-link" href="https://www.googlescholar.com/{{userprofile.googlescholar}}" target="_blank"><i class="fa fa-google fa-2x " aria-hidden="true"></i></a>
+                            
+                            </div>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    
+    <div class="text-muted">
+      <p class="text-credit">{% translate ' طراحي شده توسط' %}  :<a class="credit" href="https://www.linkedin.com/in/sahar-gerameifar-7b226712a" target="_blank">Sahar Gerameifar</a></p>
+    </div>
+  </footer>
+
+{% endblock %}
