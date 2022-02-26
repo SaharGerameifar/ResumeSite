@@ -353,55 +353,57 @@
             <div class="tab-pane active" id="web-development">
               <div class="card p-5">
                 <div class="row certificate">
-                  {% for academic in academics %}
-                    <div class="col-lg-4 col-md-6 certificate-item filter-app">
-                      <div class="certificate-wrap ">
-                        <img src="{{ academic.thumbnail.url }}" class="img-fluid academic-img w-100" alt="">
-                        <div class="certificate-info">
-                          
-                          {% if LANGUAGE_CODE == 'fa' %}
-                            <h4>
-                              {% if academic.degree == 1 %}
-                                <span>زير ديپلم </span>
-                              {% elif academic.degree == 2 %}
-                                <span> ديپلم </span>
-                              {% elif academic.degree == 3 %} 
-                                <span> كارشناسي </span>
-                              {% elif academic.degree == 4 %} 
-                                <span>كارشناسي ارشد  </span>
-                              {% elif academic.degree == 5 %}
-                                <span> دكترا </span>
-                              {% else %} 
-                                <span> فوق دكترا </span>
-                              {% endif %} 
-                                <span>{{ academic.course }}</span> 
-                            </h4>
-                          {% endif %}
-                          {% if LANGUAGE_CODE == 'en' %}
-                            <h4>
-                              {% if academic.degree == 1 %}
-                                <span>High School </span>
-                              {% elif academic.degree == 2 %}
-                                <span> Diploma </span>
-                              {% elif academic.degree == 3 %} 
-                                <span> BA/BSc </span>
-                              {% elif academic.degree == 4 %} 
-                                <span> MA/MSc </span>
-                              {% elif academic.degree == 5 %}
-                                <span> PhD </span>
-                              {% else %} 
-                                <span> Post Doctoral </span>
-                              {% endif %} 
-                                <span>{{ academic.course }}</span> 
-                            </h4>
-                          {% endif %}
-                          <div class="certificate-links">
-                            <a href="{{ academic.thumbnail.url }}" target="_blank"><i class="fa fa-plus"></i></a>
+                  {% if academic.thumbnail %}
+                      {% for academic in academics %}
+                        <div class="col-lg-4 col-md-6 certificate-item filter-app">
+                          <div class="certificate-wrap ">
+                            <img src="{{ academic.thumbnail.url }}" class="img-fluid academic-img w-100" alt="">
+                            <div class="certificate-info">
+
+                              {% if LANGUAGE_CODE == 'fa' %}
+                                <h4>
+                                  {% if academic.degree == 1 %}
+                                    <span>زير ديپلم </span>
+                                  {% elif academic.degree == 2 %}
+                                    <span> ديپلم </span>
+                                  {% elif academic.degree == 3 %} 
+                                    <span> كارشناسي </span>
+                                  {% elif academic.degree == 4 %} 
+                                    <span>كارشناسي ارشد  </span>
+                                  {% elif academic.degree == 5 %}
+                                    <span> دكترا </span>
+                                  {% else %} 
+                                    <span> فوق دكترا </span>
+                                  {% endif %} 
+                                    <span>{{ academic.course }}</span> 
+                                </h4>
+                              {% endif %}
+                              {% if LANGUAGE_CODE == 'en' %}
+                                <h4>
+                                  {% if academic.degree == 1 %}
+                                    <span>High School </span>
+                                  {% elif academic.degree == 2 %}
+                                    <span> Diploma </span>
+                                  {% elif academic.degree == 3 %} 
+                                    <span> BA/BSc </span>
+                                  {% elif academic.degree == 4 %} 
+                                    <span> MA/MSc </span>
+                                  {% elif academic.degree == 5 %}
+                                    <span> PhD </span>
+                                  {% else %} 
+                                    <span> Post Doctoral </span>
+                                  {% endif %} 
+                                    <span>{{ academic.course }}</span> 
+                                </h4>
+                              {% endif %}
+                              <div class="certificate-links">
+                                <a href="{{ academic.thumbnail.url }}" target="_blank"><i class="fa fa-plus"></i></a>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  {% endfor %} 
+                      {% endfor %}
+                  {% endif %}
                   {% for certificate in certificates %}                    
                     <div class="col-lg-4 col-md-6 certificate-item filter-app">
                       <div class="certificate-wrap">
